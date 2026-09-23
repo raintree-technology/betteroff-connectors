@@ -1,0 +1,29 @@
+{
+  "name": "betteroff",
+  "version": "0.1.0",
+  "description": "Read BetterOff household accounts, net worth, cash flow, recurring bills, holdings, transactions, and debts.",
+  "author": {
+    "name": "BetterOff"
+  },
+  "homepage": "https://betteroff.finance",
+  "license": "UNLICENSED",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "BetterOff",
+    "shortDescription": "Read your BetterOff household",
+    "developerName": "BetterOff",
+    "category": "Productivity",
+    "websiteURL": "https://betteroff.finance",
+    "privacyPolicyURL": "https://betteroff.finance/legal/privacy",
+    "termsOfServiceURL": "https://betteroff.finance/legal/terms",
+    "defaultPrompt": [
+      "Show my net worth and its valuation date.",
+      "List my accounts and flag stale balances."
+    ],
+    "longDescription": "Read BetterOff household accounts, net worth, cash flow, recurring bills, holdings, transactions, and debts.",
+    "capabilities": [
+      "Read"
+    ]
+  }
+}

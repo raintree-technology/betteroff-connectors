@@ -1,0 +1,24 @@
+{
+  "name": "betteroff",
+  "interface": {
+    "longDescription": "Read BetterOff household accounts, net worth, cash flow, recurring bills, holdings, transactions, and debts.",
+    "capabilities": [
+      "Read"
+    ],
+    "displayName": "BetterOff"
+  },
+  "plugins": [
+    {
+      "name": "betteroff",
+      "source": {
+        "source": "local",
+        "path": "./plugins/betteroff"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

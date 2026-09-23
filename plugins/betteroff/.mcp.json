@@ -1,0 +1,8 @@
+{
+	"mcpServers": {
+		"betteroff": {
+			"type": "http",
+			"url": "https://api.betteroff.finance/mcp"
+		}
+	}
+}

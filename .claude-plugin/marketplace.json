@@ -1,0 +1,20 @@
+{
+  "name": "betteroff",
+  "owner": {
+    "name": "BetterOff"
+  },
+  "plugins": [
+    {
+      "name": "betteroff",
+      "version": "0.1.0",
+      "description": "Read BetterOff household accounts, net worth, cash flow, recurring bills, holdings, transactions, and debts.",
+      "author": {
+        "name": "BetterOff"
+      },
+      "homepage": "https://betteroff.finance",
+      "license": "UNLICENSED",
+      "mcpServers": "./.mcp.json",
+      "source": "./plugins/betteroff"
+    }
+  ]
+}
