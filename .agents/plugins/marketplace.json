@@ -1,9 +1,10 @@
 {
   "name": "betteroff",
   "interface": {
-    "longDescription": "Read BetterOff household accounts, net worth, cash flow, recurring bills, holdings, transactions, and debts.",
+    "longDescription": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
     "capabilities": [
-      "Read"
+      "Read",
+      "Write"
     ],
     "displayName": "BetterOff"
   },
