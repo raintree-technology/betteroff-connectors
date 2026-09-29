@@ -1,0 +1,30 @@
+name: Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/audit_package.py
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: claude plugin validate --strict .
+      - run: claude plugin validate --strict plugins/betteroff
+
+  server:
+    # Live endpoint checks run on the schedule so a server outage does not block pull requests.
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: scripts/audit_server.sh

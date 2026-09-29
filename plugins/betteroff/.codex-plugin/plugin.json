@@ -1,30 +1,31 @@
 {
-  "name": "betteroff",
-  "version": "0.2.0",
-  "description": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
-  "interface": {
-    "displayName": "BetterOff",
-    "longDescription": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
-    "category": "Productivity",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
-    "shortDescription": "Read your BetterOff household",
-    "developerName": "BetterOff",
-    "websiteURL": "https://betteroff.finance",
-    "privacyPolicyURL": "https://betteroff.finance/legal/privacy",
-    "termsOfServiceURL": "https://betteroff.finance/legal/terms",
-    "defaultPrompt": [
-      "Show my net worth and its valuation date.",
-      "List my accounts and flag stale balances."
-    ]
-  },
-  "author": {
-    "name": "BetterOff"
-  },
-  "homepage": "https://betteroff.finance",
-  "license": "UNLICENSED",
-  "skills": "./skills/",
-  "mcpServers": "./.mcp.json"
+	"name": "betteroff",
+	"version": "0.3.0",
+	"description": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
+	"interface": {
+		"displayName": "BetterOff",
+		"longDescription": "For BetterOff household owners. Ask about the accounts, net worth, cash flow, recurring items, holdings, transactions, spending, and debts you connected to BetterOff. Results state their currency and dates, and can be incomplete when a source is disconnected or out of date. The plugin can prepare category, recurring, and debt corrections, but each one stays pending until you approve it in BetterOff. It cannot apply a correction, move money, pay bills, or place trades.",
+		"category": "Finance",
+		"capabilities": ["Read", "Write"],
+		"shortDescription": "Read your BetterOff household",
+		"developerName": "BetterOff",
+		"websiteURL": "https://betteroff.finance",
+		"supportURL": "https://betteroff.finance/contact",
+		"privacyPolicyURL": "https://betteroff.finance/legal/privacy",
+		"termsOfServiceURL": "https://betteroff.finance/legal/terms",
+		"composerIcon": "./assets/icon.png",
+		"logo": "./assets/icon.png",
+		"defaultPrompt": [
+			"Show my net worth and its valuation date.",
+			"List my accounts and flag stale balances."
+		]
+	},
+	"author": {
+		"name": "BetterOff"
+	},
+	"homepage": "https://betteroff.finance",
+	"repository": "https://github.com/raintree-technology/betteroff-connectors",
+	"license": "UNLICENSED",
+	"skills": "./skills/",
+	"mcpServers": "./.mcp.json"
 }

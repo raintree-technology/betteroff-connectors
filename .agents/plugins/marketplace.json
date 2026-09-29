@@ -1,11 +1,6 @@
 {
   "name": "betteroff",
   "interface": {
-    "longDescription": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
-    "capabilities": [
-      "Read",
-      "Write"
-    ],
     "displayName": "BetterOff"
   },
   "plugins": [
@@ -19,7 +14,7 @@
         "installation": "AVAILABLE",
         "authentication": "ON_INSTALL"
       },
-      "category": "Productivity"
+      "category": "Finance"
     }
   ]
 }

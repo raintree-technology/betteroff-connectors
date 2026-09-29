@@ -1,18 +1,18 @@
 {
-  "name": "betteroff",
-  "version": "0.2.0",
-  "description": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
-  "displayName": "BetterOff",
-  "author": {
-    "name": "BetterOff"
-  },
-  "homepage": "https://betteroff.finance",
-  "privacyPolicyUrl": "https://betteroff.finance/legal/privacy",
-  "termsOfServiceUrl": "https://betteroff.finance/legal/terms",
-  "supportUrl": "https://betteroff.finance/contact",
-  "documentationUrl": "https://github.com/raintree-technology/betteroff-connectors",
-  "repository": "https://github.com/raintree-technology/betteroff-connectors",
-  "icon": "./icon.png",
-  "license": "UNLICENSED",
-  "mcpServers": "./.mcp.json"
+	"name": "betteroff",
+	"version": "0.3.0",
+	"description": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
+	"displayName": "BetterOff",
+	"author": {
+		"name": "BetterOff"
+	},
+	"homepage": "https://betteroff.finance",
+	"privacyPolicyUrl": "https://betteroff.finance/legal/privacy",
+	"termsOfServiceUrl": "https://betteroff.finance/legal/terms",
+	"supportUrl": "https://betteroff.finance/contact",
+	"documentationUrl": "https://github.com/raintree-technology/betteroff-connectors",
+	"repository": "https://github.com/raintree-technology/betteroff-connectors",
+	"icon": "./assets/icon.png",
+	"license": "UNLICENSED",
+	"mcpServers": "./.mcp.json"
 }

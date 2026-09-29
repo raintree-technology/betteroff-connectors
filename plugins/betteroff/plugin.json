@@ -1,0 +1,12 @@
+{
+	"$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+	"name": "betteroff",
+	"version": "0.3.0",
+	"description": "Read BetterOff household finances and prepare corrections for approval in BetterOff.",
+	"author": {
+		"name": "BetterOff"
+	},
+	"homepage": "https://betteroff.finance",
+	"repository": "https://github.com/raintree-technology/betteroff-connectors",
+	"license": "UNLICENSED"
+}
