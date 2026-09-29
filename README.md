@@ -1,4 +1,4 @@
-# <img src="plugins/betteroff/icon.png" alt="" width="48" height="48"> BetterOff connectors
+# <picture><source media="(prefers-color-scheme: dark)" srcset="assets/betteroff-mark-white.svg"><img src="assets/betteroff-mark-graphite.svg" alt="" width="48" height="48"></picture> BetterOff connectors
 
 Ask Codex or Claude Code about the financial records you connect to BetterOff. The connector can read approved household data and prepare corrections for your review. It cannot apply a correction, move money, or place a trade.
 
