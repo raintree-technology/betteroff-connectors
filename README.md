@@ -1,6 +1,6 @@
 # <picture><source media="(prefers-color-scheme: dark)" srcset="assets/betteroff-mark-white.svg"><img src="assets/betteroff-mark-graphite.svg" alt="" width="48" height="48" align="absmiddle"></picture> BetterOff connectors
 
-Ask Codex, Claude Code, Hermes Agent, Muse Code, OpenClaw, or Pi about the financial records you connect to BetterOff. The connector can read approved household data and prepare corrections for your review. It cannot apply a correction, move money, or place a trade.
+Ask Codex, Claude Code, GitHub Copilot, Cursor, Gemini CLI, Devin, Hermes Agent, Muse Code, OpenClaw, or Pi about the financial records you connect to BetterOff. The connector can read approved household data and prepare corrections for your review. It cannot apply a correction, move money, or place a trade.
 
 ## Before you start
 
@@ -23,6 +23,67 @@ codex plugin add betteroff@betteroff
 claude plugin marketplace add raintree-technology/betteroff-connectors
 claude plugin install betteroff@betteroff
 ```
+
+### GitHub Copilot
+
+In VS Code, run **Chat: Install Plugin From Source** from the Command Palette, enter `https://github.com/raintree-technology/betteroff-connectors`, confirm the marketplace trust prompt, and select **Install** for **betteroff**.
+
+In Copilot CLI:
+
+```sh
+copilot plugin marketplace add raintree-technology/betteroff-connectors
+copilot plugin install betteroff@betteroff
+```
+
+In the GitHub Copilot app, open **Customize** > **Plugins**, select the gear icon, add `raintree-technology/betteroff-connectors`, and install **betteroff**.
+
+VS Code runs tools marked read-only without asking and asks before the proposal tools. Copilot CLI asks before every BetterOff tool call. To sign in again from Copilot CLI, run `/mcp auth betteroff`.
+
+### Cursor
+
+Copy `plugins/betteroff` from a clone of this repository to `~/.cursor/plugins/local/betteroff`, then reload Cursor. The plugin adds the BetterOff MCP server and the `household-review` skill.
+
+To add only the MCP server, add it to `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "betteroff": {
+      "url": "https://api.betteroff.finance/mcp"
+    }
+  }
+}
+```
+
+Cursor asks before it runs each BetterOff tool unless you add the tool to your allowlist.
+
+### Gemini CLI
+
+```sh
+gemini extensions install https://github.com/raintree-technology/betteroff-connectors
+```
+
+Restart Gemini CLI. On first use, it opens your browser to sign in to BetterOff and receives the result on a `localhost` callback, so run it on a machine with a browser. If sign-in does not start, run `/mcp auth betteroff`. Gemini CLI asks before each BetterOff tool call.
+
+### Devin
+
+> **Warning:** Connect BetterOff with **Personal** access only. With **Organization** access, every member's sessions share one BetterOff sign-in and can read your household finances. Devin notes that other members can still interact with your sessions, so use BetterOff only in an organization whose members you trust with this data.
+
+In the Devin web app:
+
+1. Open **Customize** > **Plugins** and select the **Personal** scope.
+2. Choose **Add plugin** > **From repository**. Enter `raintree-technology/betteroff-connectors` and the subdirectory `plugins/betteroff`.
+3. After indexing finishes, open **Customize** > **MCPs**, select **betteroff**, and choose **Connect**.
+4. Start a new session and mention `/betteroff:household-review` to load the skill.
+
+In the Devin CLI:
+
+```sh
+devin plugins install raintree-technology/betteroff-connectors#plugins/betteroff
+devin mcp login betteroff
+```
+
+The Devin CLI asks before each BetterOff tool call unless you allow it.
 
 ### Hermes Agent
 

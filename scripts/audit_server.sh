@@ -47,6 +47,7 @@ else
   [[ $(jq -r .issuer <<<"$ASM") == "$AS" ]] && ok "issuer matches" || fail "issuer $(jq -r .issuer <<<"$ASM") != $AS"
   jq -e '.code_challenge_methods_supported | index("S256")' >/dev/null <<<"$ASM" && ok "PKCE S256" || fail "S256 not advertised"
   jq -e '.registration_endpoint or .client_id_metadata_document_supported' >/dev/null <<<"$ASM" && ok "DCR or CIMD" || fail "no DCR or CIMD"
+  jq -e '.registration_endpoint' >/dev/null <<<"$ASM" || warn "no DCR: Pi, OpenClaw, Muse Code, and Cursor register clients with DCR by default"
   jq -e '.authorization_response_iss_parameter_supported' >/dev/null <<<"$ASM" && ok "RFC 9207 iss" || warn "RFC 9207 iss not advertised"
   jq -e '.grant_types_supported // [] | index("implicit") or index("password")' >/dev/null <<<"$ASM" && fail "implicit or password grant offered"
   jq -r '[.authorization_endpoint, .token_endpoint, .registration_endpoint] | .[] | select(. != null)' <<<"$ASM" | grep -v '^https://' && fail "non-HTTPS AS endpoint"

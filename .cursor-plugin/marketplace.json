@@ -1,0 +1,16 @@
+{
+  "name": "betteroff",
+  "owner": {
+    "name": "BetterOff"
+  },
+  "metadata": {
+    "description": "BetterOff connectors for reading household finances and preparing corrections for approval in BetterOff."
+  },
+  "plugins": [
+    {
+      "name": "betteroff",
+      "source": "./plugins/betteroff",
+      "description": "Read BetterOff household finances and prepare corrections for approval in BetterOff."
+    }
+  ]
+}

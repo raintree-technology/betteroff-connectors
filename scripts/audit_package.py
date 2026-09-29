@@ -64,7 +64,9 @@ r = x.get("review", {})
 tc = r.get("test_cases") or {}
 if len(tc.get("positive", [])) != 5 or len(tc.get("negative", [])) != 3: w("review.test_cases", "need exactly 5 positive + 3 negative before MCP review")
 for c in tc.get("positive", []):
-    if not all(c.get(k) for k in ("description", "prompt", "tools_triggered", "expected_behavior")): e("review.test_cases.positive", c)
+    if not all(c.get(k) for k in ("description", "prompt", "tools_triggered", "expected_behavior", "expected_result_shape", "fixture_data")): e("review.test_cases.positive", c)
+for c in tc.get("negative", []):
+    if not all(c.get(k) for k in ("description", "prompt", "expected_behavior", "why_not_completed")): e("review.test_cases.negative", c)
 if not r.get("demo_recording_url"): w("review.demo_recording_url", "required for MCP review")
 if not x.get("publication", {}).get("release_notes"): w("publication.release_notes", "required for MCP review")
 for bad in ("test_credentials", "reviewer_instructions"):
@@ -122,6 +124,17 @@ if pm.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/plugin.schema.j
 if pm.get("name") != m["name"]: e("portable_plugin_name", pm.get("name"))
 if "extensions" in pm: w("portable_extensions", "extensions.com.openai in plugin.json overrides .codex-plugin/plugin.json")
 vers.add(pm.get("version"))
+gx = json.loads((root / "gemini-extension.json").read_text())
+vers.add(gx.get("version"))
+if not (root / gx.get("contextFileName", "")).is_file(): e("gemini_context_missing", gx.get("contextFileName"))
+for n, v in gx.get("mcpServers", {}).items():
+    if v.get("httpUrl") != url: e("gemini_mcp_server", f"{n}: httpUrl must be {url}")
+cur = P / ".cursor-plugin/plugin.json"
+if cur.exists():
+    cu = json.loads(cur.read_text())
+    vers.add(cu.get("version"))
+    if cu.get("name") != m["name"]: e("cursor_plugin_name", cu.get("name"))
+    if not (P / cu.get("logo", "")).is_file(): e("cursor_logo_missing", cu.get("logo"))
 if len(vers) > 1: e("version_drift", sorted(map(str, vers)))
 pmc = json.loads((P / "mcp.json").read_text())
 if pmc.get("$schema") != "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json": e("portable_mcp_schema", pmc.get("$schema"))
